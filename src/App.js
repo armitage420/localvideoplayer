@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import ReactPlayer from 'react-player';
-import classes from './App.css';
+import './App.css';
+import './Player.css';
 
 function App(){
     const [videoFilePath, setVideoFilePath] = useState("cakebytheocean.mp4");
-
     return(
-        <div>
+      <div className='playerWrapper'>
         {videoFilePath ? (
           <ReactPlayer
-            className={classes.reactPlayer}
+            className='reactPlayer'
             url={videoFilePath}
             width="100%"
             height="100%"
@@ -18,7 +18,7 @@ function App(){
         ) : (
           <div></div>
         )}
-        </div>
+      </div>
     );   
 }
 
