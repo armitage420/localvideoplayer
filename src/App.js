@@ -5,20 +5,27 @@ import './Player.css';
 
 function App(){
     const [videoFilePath, setVideoFilePath] = useState("cakebytheocean.mp4");
+    const [controls, toggle] = useState(
+      (controls) => !controls,
+      false
+      );
+
     return(
-      <div className='playerWrapper'>
-        {videoFilePath ? (
+      <div className='App'>
+        <div className='playerWrapper'>
           <ReactPlayer
             className='reactPlayer'
             url={videoFilePath}
-            width="100%"
-            height="100%"
-            controls={true}
+            muted={true}
+            playing={true}
+            controls={controls}
+            events={{
+              onMouseOver: () => {toggle}
+            }}
           />
-        ) : (
-          <div></div>
-        )}
       </div>
+      </div>
+      
     );   
 }
 
